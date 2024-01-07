@@ -1,7 +1,7 @@
 import Container from "@/components/Layout/Container";
 export default function PageHeader({
     title = "Header Title",
-    bg = "/img/page-header-1.jpg",
+    bg = "/img/page-header-1.webp",
 }) {
     return (
         <div

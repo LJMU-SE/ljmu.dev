@@ -7,7 +7,7 @@ export default function Home() {
         <Layout name={"Home"} fixedNav={false}>
             <div
                 className={`w-full bg-left bg-cover bg-no-repeat relative h-[calc(100vh*0.6)]`}
-                style={{ backgroundImage: `url("/img/page-header-1.jpg")` }}
+                style={{ backgroundImage: `url("/img/page-header-1.webp")` }}
             >
                 <div
                     className="h-full w-full text-white"
@@ -33,7 +33,6 @@ export default function Home() {
                     </Container>
                 </div>
             </div>
-            <div className="h-32"></div>
         </Layout>
     );
 }

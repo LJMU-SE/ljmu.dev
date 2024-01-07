@@ -15,14 +15,14 @@ export default function Layout({ children, fixedNav = false, name }) {
                 </title>
                 <link
                     rel="icon"
-                    type="image/png"
-                    href="/img/icons/light.png"
+                    type="image/webp"
+                    href="/img/icons/light.webp"
                     media="(prefers-color-scheme: light)"
                 />
                 <link
                     rel="icon"
-                    type="image/png"
-                    href="/img/icons/dark.png"
+                    type="image/webp"
+                    href="/img/icons/dark.webp"
                     media="(prefers-color-scheme: dark)"
                 />
             </Head>

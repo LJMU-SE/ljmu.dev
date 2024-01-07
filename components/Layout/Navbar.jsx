@@ -20,7 +20,7 @@ export default function NavBar({ fixed = false }) {
                 <Container>
                     <div className="h-full flex items-center justify-center md:justify-start overflow-hidden">
                         <img
-                            src="/img/logos/white.png"
+                            src="/img/logos/white.webp"
                             alt="SE Team Logo"
                             className="h-7 mr-1"
                         />

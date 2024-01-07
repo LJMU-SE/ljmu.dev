@@ -7,10 +7,12 @@ module.exports = {
     ],
     theme: {
         extend: {
+            screens: {
+                xs: "480px",
+            },
             boxShadow: {
                 header: "0px -1px 0px hsla(0,0%,100%,.2);",
             },
         },
     },
-    plugins: [],
 };
