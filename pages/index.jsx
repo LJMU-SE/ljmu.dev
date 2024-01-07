@@ -28,7 +28,16 @@ export default function Home() {
                                     Liverpool John Moore's University
                                 </a>
                             </p>
-                            <BaseButton>Test Button</BaseButton>
+                            <BaseButton
+                                onClick={() => {
+                                    window.open(
+                                        "https://www.github.com/LJMU-SE",
+                                        "_blank"
+                                    );
+                                }}
+                            >
+                                Learn More
+                            </BaseButton>
                         </div>
                     </Container>
                 </div>
