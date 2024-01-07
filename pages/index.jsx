@@ -4,7 +4,13 @@ import BaseButton from "@/components/Buttons/Base";
 
 export default function Home() {
     return (
-        <Layout name={"Home"} fixedNav={false}>
+        <Layout
+            name={"Home"}
+            fixedNav={false}
+            description={
+                "We are a small team of software engineering students from Liverpool John Moore's University"
+            }
+        >
             <div
                 className={`w-full bg-left bg-cover bg-no-repeat relative h-[calc(100vh*0.6)]`}
                 style={{ backgroundImage: `url("/img/page-header-1.webp")` }}

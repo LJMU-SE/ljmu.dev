@@ -14,15 +14,15 @@ export default function Layout({
     host,
     fixedNav = false,
     name,
-    ...props
+    description,
+    image,
 }) {
     const title = name
         ? `${name} | LJMU Software Engineering Team`
         : "LJMU Software Engineering Team";
 
-    const description = props.description || "No Description Provided";
-    const image =
-        props.image || "https://www.ljmu.dev/img/metadata/og-large.png";
+    const metaDescription = description || "No Description Provided";
+    const metaImage = image || "https://www.ljmu.dev/img/metadata/og-large.png";
 
     const router = useRouter();
     const url = `https://${host || "ljmu.dev"}${router.asPath}`;
@@ -32,22 +32,22 @@ export default function Layout({
             <Head>
                 {/* <!-- HTML Meta Tags --> */}
                 <title>{title}</title>
-                <meta name="description" content={description} />
+                <meta name="description" content={metaDescription} />
                 {/* <!-- Google / Search Engine Tags --> */}
                 <meta itemProp="name" content={title} />
-                <meta itemProp="description" content={description} />
-                <meta itemProp="image" content={image} />
+                <meta itemProp="description" content={metaDescription} />
+                <meta itemProp="image" content={metaImage} />
                 {/* <!-- Facebook Meta Tags --> */}
                 <meta property="og:url" content={url} />
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content={title} />
-                <meta property="og:description" content={description} />
-                <meta property="og:image" content={image} />
+                <meta property="og:description" content={metaDescription} />
+                <meta property="og:image" content={metaImage} />
                 {/* <!-- Twitter Meta Tags --> */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={title} />
-                <meta name="twitter:description" content={description} />
-                <meta name="twitter:image" content={image} />
+                <meta name="twitter:description" content={metaDescription} />
+                <meta name="twitter:image" content={metaImage} />
                 <link
                     rel="icon"
                     type="image/webp"
