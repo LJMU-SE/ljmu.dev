@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <footer className="border-t border-[#dedede]">
+        <footer id="footer" className="border-t border-[#dedede]">
             <div className="flex flex-col items-center justify-center py-10">
                 <div className="flex flex-col items-center justify-center w-full max-w-2xl">
                     <div className="flex flex-col items-center justify-center w-full max-w-2xl">
