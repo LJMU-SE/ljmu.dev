@@ -1,6 +1,8 @@
 import Layout from "@/components/Layout/PageLayout";
 import LandingHeader from "@/components/Landing/LandingHeader";
 import Container from "@/components/Layout/Container";
+import BodyButton from "@/components/Buttons/Body";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 export default function Home() {
     return (
@@ -16,7 +18,7 @@ export default function Home() {
                 <div className="py-8 flex flex-col lg:flex-row justify-center items-center">
                     <div className="w-full px-0 lg:pr-4">
                         <h1 className="text-2xl">About Us</h1>
-                        <p className="mt-3">
+                        <p className="my-3">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit. Ut ornare mauris a risus dignissim posuere.
                             Donec massa orci, auctor non venenatis et, convallis
@@ -28,6 +30,14 @@ export default function Home() {
                             risus. Fusce eu ante ut nisi tempor pulvinar sit
                             amet vitae mauris.
                         </p>
+                        <BodyButton
+                            onClick={() => {
+                                window.open("/about-us", "_self");
+                            }}
+                        >
+                            {" "}
+                            Learn More <FaArrowRightLong className="ml-3" />
+                        </BodyButton>
                     </div>
                     <div className="w-full px-0 mt-4 lg:my-0 lg:pl-4">
                         <video
