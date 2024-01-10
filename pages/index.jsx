@@ -45,6 +45,9 @@ export default function Home() {
                             className="w-full rounded-lg"
                             controls
                         />
+                        <p className="w-full text-left lg:text-right mt-2 text-sm opacity-50">
+                            LJMU 200 - always ahead of our time [YouTube]
+                        </p>
                     </div>
                 </div>
             </Container>
