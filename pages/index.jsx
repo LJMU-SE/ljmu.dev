@@ -1,8 +1,27 @@
 import Layout from "@/components/Layout/PageLayout";
 import LandingHeader from "@/components/Landing/LandingHeader";
 import Container from "@/components/Layout/Container";
+import AboutSection from "@/components/Landing/About";
 import BodyButton from "@/components/Buttons/Body";
-import { FaArrowRightLong } from "react-icons/fa6";
+
+function ProjectCard({ title, description }) {
+    return (
+        <div className="rounded-md bg-white w-full max-w-80 overflow-hidden mr-5 last:mr-0 shrink-0">
+            <div className="w-full h-40">
+                <img
+                    className="w-full h-full object-cover object-center"
+                    src="/img/page-header-1.webp"
+                />
+            </div>
+            <div className="p-4 h-60 flex flex-col">
+                <h2 className="h-6">{title}</h2>
+                <p className="my-2 h-max line-clamp-5">{description}</p>
+                <div className="flex-grow" />
+                <BodyButton width="w-full">Learn More</BodyButton>
+            </div>
+        </div>
+    );
+}
 
 export default function Home() {
     return (
@@ -14,47 +33,44 @@ export default function Home() {
             }
         >
             <LandingHeader />
-            <Container>
-                <div className="py-8 flex flex-col lg:flex-row justify-center items-center">
-                    <div className="w-full px-0 lg:pr-4">
-                        <h1 className="text-2xl">About Us</h1>
-                        <p className="my-3">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Ut ornare mauris a risus dignissim posuere.
-                            Donec massa orci, auctor non venenatis et, convallis
-                            ut ante. Morbi ut dapibus quam. Duis efficitur ante
-                            libero, et suscipit massa sagittis eget. Nunc
-                            egestas sem pharetra sapien semper, ac vulputate
-                            velit sollicitudin. Nam vel enim at quam dictum
-                            vestibulum ut laoreet arcu. Fusce dignissim porta
-                            risus. Fusce eu ante ut nisi tempor pulvinar sit
-                            amet vitae mauris.
-                        </p>
-                        <BodyButton
-                            onClick={() => {
-                                window.open("/about-us", "_self");
-                            }}
-                        >
-                            {" "}
-                            Learn More <FaArrowRightLong className="ml-3" />
-                        </BodyButton>
-                    </div>
-                    <div className="w-full px-0 mt-4 lg:my-0 lg:pl-4 flex flex-col items-end">
-                        <video
-                            src="/video/landing.webm"
-                            className="w-full rounded-lg"
-                            controls
+            <AboutSection />
+            <div className="bg-gray-100 py-8">
+                <Container>
+                    <h1 className="text-2xl">Some of Our Work</h1>
+                    <div className="max-w-full overflow-auto mt-3 pb-5 flex flex-nowrap custom-scroll">
+                        <ProjectCard
+                            title="Project 1"
+                            description={
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare mauris a risus dignissim posuere. Donec massa orci, auctor non venenatis et, convallis ut ante. Morbi ut dapibus quam. Duis efficitur ante libero, et suscipit massa sagittis eget. Nunc egestas sem pharetra sapien semper, ac vulputate velit sollicitudin. Nam vel enim at quam dictum vestibulum ut laoreet arcu. Fusce dignissim porta risus. Fusce eu ante ut nisi tempor pulvinar sit amet vitae mauris."
+                            }
                         />
-                        <a
-                            href="https://www.youtube.com/watch?v=Vc2DAkMvqko"
-                            target="_blank"
-                            className="block w-max lg:text-right mt-2 text-sm opacity-50 text-right"
-                        >
-                            LJMU 200 - always ahead of our time [YouTube]
-                        </a>
+                        <ProjectCard
+                            title="Project 2"
+                            description={
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare mauris a risus dignissim posuere. Donec massa orci, auctor non venenatis et, convallis ut ante. Morbi ut dapibus quam. Duis efficitur ante libero, et suscipit massa sagittis eget. Nunc egestas sem pharetra sapien semper, ac vulputate velit sollicitudin. Nam vel enim at quam dictum vestibulum ut laoreet arcu. Fusce dignissim porta risus. Fusce eu ante ut nisi tempor pulvinar sit amet vitae mauris."
+                            }
+                        />
+                        <ProjectCard
+                            title="Project 3"
+                            description={
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare mauris a risus dignissim posuere. Donec massa orci, auctor non venenatis et, convallis ut ante. Morbi ut dapibus quam. Duis efficitur ante libero, et suscipit massa sagittis eget. Nunc egestas sem pharetra sapien semper, ac vulputate velit sollicitudin. Nam vel enim at quam dictum vestibulum ut laoreet arcu. Fusce dignissim porta risus. Fusce eu ante ut nisi tempor pulvinar sit amet vitae mauris."
+                            }
+                        />
+                        <ProjectCard
+                            title="Project 4"
+                            description={
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare mauris a risus dignissim posuere. Donec massa orci, auctor non venenatis et, convallis ut ante. Morbi ut dapibus quam. Duis efficitur ante libero, et suscipit massa sagittis eget. Nunc egestas sem pharetra sapien semper, ac vulputate velit sollicitudin. Nam vel enim at quam dictum vestibulum ut laoreet arcu. Fusce dignissim porta risus. Fusce eu ante ut nisi tempor pulvinar sit amet vitae mauris."
+                            }
+                        />
+                        <ProjectCard
+                            title="Project 5"
+                            description={
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare mauris a risus dignissim posuere. Donec massa orci, auctor non venenatis et, convallis ut ante. Morbi ut dapibus quam. Duis efficitur ante libero, et suscipit massa sagittis eget. Nunc egestas sem pharetra sapien semper, ac vulputate velit sollicitudin. Nam vel enim at quam dictum vestibulum ut laoreet arcu. Fusce dignissim porta risus. Fusce eu ante ut nisi tempor pulvinar sit amet vitae mauris."
+                            }
+                        />
                     </div>
-                </div>
-            </Container>
+                </Container>
+            </div>
         </Layout>
     );
 }
