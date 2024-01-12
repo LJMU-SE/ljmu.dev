@@ -39,15 +39,19 @@ export default function Home() {
                             Learn More <FaArrowRightLong className="ml-3" />
                         </BodyButton>
                     </div>
-                    <div className="w-full px-0 mt-4 lg:my-0 lg:pl-4">
+                    <div className="w-full px-0 mt-4 lg:my-0 lg:pl-4 flex flex-col items-end">
                         <video
                             src="/video/landing.mp4"
                             className="w-full rounded-lg"
                             controls
                         />
-                        <p className="w-full text-left lg:text-right mt-2 text-sm opacity-50">
+                        <a
+                            href="https://www.youtube.com/watch?v=Vc2DAkMvqko"
+                            target="_blank"
+                            className="block w-max lg:text-right mt-2 text-sm opacity-50 text-right"
+                        >
                             LJMU 200 - always ahead of our time [YouTube]
-                        </p>
+                        </a>
                     </div>
                 </div>
             </Container>
