@@ -4,7 +4,7 @@ import Container from "@/components/Layout/Container";
 
 function ProjectCard({ title, description, href, counts }) {
     return (
-        <div className="rounded-md bg-white w-full max-w-[300px] overflow-hidden mr-5 first:ml-1 last:mr-1 shrink-0 shadow-md">
+        <div className="rounded-md bg-white w-full max-w-[300px] overflow-hidden mr-5 first:ml-1 last:mr-1 shrink-0 shadow-md select-none">
             <div className="w-full h-40 relative">
                 <p className="absolute top-0 left-0 text-white shadow-lg p-3">
                     {counts.index}/{counts.total}
