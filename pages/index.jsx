@@ -41,7 +41,7 @@ export default function Home() {
                     </div>
                     <div className="w-full px-0 mt-4 lg:my-0 lg:pl-4 flex flex-col items-end">
                         <video
-                            src="/video/landing.mp4"
+                            src="/video/landing.webm"
                             className="w-full rounded-lg"
                             controls
                         />
