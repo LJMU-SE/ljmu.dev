@@ -6,8 +6,8 @@ export default function AboutSection() {
     return (
         <div className="w-full py-8">
             <Container>
-                <div className="flex flex-col lg:flex-row justify-center items-center">
-                    <div className="w-full px-0 lg:pr-4">
+                <div className="flex flex-col md:flex-row justify-center items-center">
+                    <div className="w-full px-0 md:pr-4">
                         <h1 className="text-2xl">About Us</h1>
                         <p className="my-3">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -29,7 +29,7 @@ export default function AboutSection() {
                             Learn More <FaArrowRightLong className="ml-3" />
                         </BodyButton>
                     </div>
-                    <div className="w-full px-0 mt-4 lg:my-0 lg:pl-4 flex flex-col items-end">
+                    <div className="w-full px-0 mt-4 md:my-0 md:pl-4 flex flex-col items-end">
                         <video
                             src="/video/landing.webm"
                             className="w-full rounded-lg"
@@ -38,7 +38,7 @@ export default function AboutSection() {
                         <a
                             href="https://www.youtube.com/watch?v=Vc2DAkMvqko"
                             target="_blank"
-                            className="block lg:text-right mt-2 text-sm opacity-50 text-right max-w-full"
+                            className="block md:text-right mt-2 text-sm opacity-50 text-right max-w-full"
                         >
                             LJMU 200 - always ahead of our time [YouTube]
                         </a>

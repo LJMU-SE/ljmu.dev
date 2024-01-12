@@ -6,7 +6,7 @@ import BodyButton from "@/components/Buttons/Body";
 
 function ProjectCard({ title, description }) {
     return (
-        <div className="rounded-md bg-white shadow-md w-full max-w-80 overflow-hidden mr-5 shrink-0">
+        <div className="rounded-md bg-white w-full max-w-80 overflow-hidden mr-5 last:mr-0 shrink-0">
             <div className="w-full h-40">
                 <img
                     className="w-full h-full object-cover object-center"
@@ -34,10 +34,10 @@ export default function Home() {
         >
             <LandingHeader />
             <AboutSection />
-            <div className="w-full bg-gray-100 py-8">
+            <div className="bg-gray-100 py-8">
                 <Container>
                     <h1 className="text-2xl">Some of Our Work</h1>
-                    <div className="w-full overflow-hidden mt-3 flex flex-nowrap">
+                    <div className="max-w-full overflow-auto mt-3 pb-5 flex flex-nowrap custom-scroll">
                         <ProjectCard
                             title="Project 1"
                             description={
