@@ -9,6 +9,3 @@ export default (req, res) => {
     // Redirect to the Gravatar image for the hashed email
     res.redirect(`https://www.gravatar.com/avatar/${hash}?d=retro`);
 };
-
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-export const runtime = "edge";
