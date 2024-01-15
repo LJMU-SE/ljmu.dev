@@ -14,6 +14,7 @@ export default function Home() {
         >
             <LandingHeader />
             <AboutSection />
+            <p>THIS IS ANOTHER TEST</p>
             <ProjectsSection />
         </Layout>
     );
