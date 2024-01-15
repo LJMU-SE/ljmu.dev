@@ -12,6 +12,8 @@ export const getServerSideProps = (context) => ({
 export default function Layout({
     children,
     host,
+    nav = true,
+    footer = true,
     fixedNav = false,
     name,
     description,
@@ -61,11 +63,11 @@ export default function Layout({
                     media="(prefers-color-scheme: dark)"
                 />
             </Head>
-            <NavBar fixed={fixedNav} />
-            <main className={`main ${fixedNav ? "mt-14 md:mt-24" : ""}`}>
+            {nav ? <NavBar fixed={fixedNav} /> : null}
+            <main className={`main ${fixedNav && nav ? "mt-14 md:mt-24" : ""}`}>
                 {children}
             </main>
-            <Footer />
+            {footer ? <Footer /> : null}
         </div>
     );
 }
