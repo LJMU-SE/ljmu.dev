@@ -31,7 +31,7 @@ export default function AboutSection() {
                     </div>
                     <div className="w-full px-0 mt-4 md:my-0 md:pl-4 flex flex-col items-end">
                         <video
-                            src="/video/landing.webm"
+                            src="/video/landing.mp4"
                             className="w-full rounded-lg"
                             controls
                         />
