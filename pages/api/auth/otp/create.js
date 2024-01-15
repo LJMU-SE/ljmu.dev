@@ -1,5 +1,7 @@
 import speakeasy from "speakeasy";
 import nodemailer from "nodemailer";
+import { renderToString } from "react-dom/server";
+import OTPTemplate from "@/templates/OTP";
 
 const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -35,7 +37,13 @@ export default (req, res) => {
             from: "LJMU SE Team<updates@ljmu.dev>",
             to: userEmail,
             subject: "Your One-Time Password",
-            text: `Your one-time password is ${otp}, this password is only valid for 5 minutes, please do not share it with anyone.`,
+            html: renderToString(
+                <OTPTemplate
+                    otp={otp}
+                    secret={secret.base32}
+                    email={userEmail}
+                />
+            ),
         };
 
         // Return secret to client
