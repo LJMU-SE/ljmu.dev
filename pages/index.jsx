@@ -14,6 +14,7 @@ export default function Home() {
         >
             <LandingHeader />
             <AboutSection />
+            <p>Test Commit</p>
             <ProjectsSection />
         </Layout>
     );
