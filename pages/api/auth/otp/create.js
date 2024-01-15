@@ -42,9 +42,7 @@ export default (req, res) => {
         res.status(200).json({
             message: "OTP Generated and sent to entered email address",
             secret: secret.base32,
-            otp,
         });
-        return resolve();
 
         // Send email to user
         transporter.sendMail(mailOptions, (err, info) => {
@@ -69,6 +67,3 @@ export default (req, res) => {
         });
     });
 };
-
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-export const runtime = "edge";
