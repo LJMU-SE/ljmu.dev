@@ -3,6 +3,8 @@ import Layout from "@/components/Layout/PageLayout";
 import crypto from "crypto";
 import { useRef, useState } from "react";
 import toast from "react-hot-toast";
+import { signIn } from "next-auth/react";
+import { redirect } from "next/dist/server/api-utils";
 
 export default function Login() {
     const [hasOTP, setHasOTP] = useState(false);
@@ -64,37 +66,61 @@ export default function Login() {
         // Disable the button to prevent spamming
         buttonRef.current.disabled = true;
 
-        // Send a request to the API to verify the OTP
-        await fetch("/api/auth/otp/verify", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                secret,
-                otp: otpRef.current.value,
-            }),
+        signIn("credentials", {
+            otp: otpRef.current.value,
+            secret,
+            redirect: false,
         })
-            .then(async (res) => {
-                // Parse the response
-                const response = await res.json();
-
-                // Check the status code
-                if (res.status === 200) {
-                    // Display a success message
-                    toast.success(response.message);
+            .then((res) => {
+                // Display a success message
+                console.log(res);
+                if (!res.ok) {
+                    return toast.error(res.error);
                 } else {
-                    // Display an error message
-                    toast.error(response.message);
+                    toast.success("Login Successful");
                 }
             })
             .catch((err) => {
-                console.error("An unexpected error occurred: ", err);
+                // Display an error message
+                toast.error("An unexpected error occurred while logging in");
+                console.error(err);
             })
             .finally(() => {
                 // Enable the button again
                 buttonRef.current.disabled = false;
             });
+
+        // Send a request to the API to verify the OTP
+        // await fetch("/api/auth/otp/verify", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify({
+        //         secret,
+        //         otp: otpRef.current.value,
+        //     }),
+        // })
+        //     .then(async (res) => {
+        //         // Parse the response
+        //         const response = await res.json();
+
+        //         // Check the status code
+        //         if (res.status === 200) {
+        //             // Display a success message
+        //             toast.success(response.message);
+        //         } else {
+        //             // Display an error message
+        //             toast.error(response.message);
+        //         }
+        //     })
+        //     .catch((err) => {
+        //         console.error("An unexpected error occurred: ", err);
+        //     })
+        //     .finally(() => {
+        //         // Enable the button again
+        //         buttonRef.current.disabled = false;
+        //     });
     }
 
     /**
