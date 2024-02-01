@@ -39,7 +39,7 @@ export default function Footer() {
                     </FooterCol>
                 </div>
                 <div className="w-full text-center">
-                    <p className="italic mt-10 opacity-50">
+                    <p className="italic mt-10 opacity-50 text-sm font-thin">
                         Disclaimer: The contents of all pages in this website
                         are solely the responsibility of the page authors.
                         Statements made and opinions expressed are strictly

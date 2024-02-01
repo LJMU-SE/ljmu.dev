@@ -12,15 +12,27 @@ const transporter = nodemailer.createTransport({
 });
 
 export default (req, res) => {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            // Verify transporter configuration
+            await transporter.verify();
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({
+                message: "Error sending OTP",
+                error: "An unexpected server error has occurred. If you are a developer, please check the console for more details.",
+            });
+            reject("Unable to verify mail transport connection");
+        }
+
         // Get email from request body
         const userEmail = req.body.email;
 
         // Check if email is provided
-        if (!userEmail)
-            return res
-                .status(400)
-                .json({ message: "Email is a required field" });
+        if (!userEmail) {
+            res.status(400).json({ message: "Email is a required field" });
+            reject("Email not provided");
+        }
 
         // TODO - Check if email is valid against the database, returning an appropriate error if not (404)
 
@@ -36,7 +48,7 @@ export default (req, res) => {
         const mailOptions = {
             from: "LJMU SE Team<updates@ljmu.dev>",
             to: userEmail,
-            subject: "Your One-Time Password",
+            subject: `Your One-Time Password is ${otp}`,
             html: renderToString(
                 <OTPTemplate
                     otp={otp}
@@ -45,12 +57,6 @@ export default (req, res) => {
                 />
             ),
         };
-
-        // Return secret to client
-        res.status(200).json({
-            message: "OTP Generated and sent to entered email address",
-            secret: secret.base32,
-        });
 
         // Send email to user
         transporter.sendMail(mailOptions, (err, info) => {
@@ -63,7 +69,7 @@ export default (req, res) => {
                     message: "Error sending OTP",
                     error: "There was an error sending the OTP to your email address. Please try again later.",
                 });
-                resolve();
+                reject(`There was an error sending the OTP to ${userEmail}`);
             } else {
                 // Return secret to client
                 res.status(200).json({

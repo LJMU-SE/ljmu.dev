@@ -25,7 +25,6 @@ export default NextAuth({
                         }
 
                         const data = response.data;
-                        console.log(data);
 
                         return Promise.resolve({
                             name: "Test User",
