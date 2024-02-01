@@ -53,7 +53,7 @@ export default function OTPTemplate({ otp, email, secret }) {
                                 href={`https://www.ljmu.dev/auth/flow?s=${secret}&email=${email}&otp=${otp}`}
                                 className="w-full"
                             >
-                                https://www.ljmu.dev/auth/login?flow=s={secret}
+                                https://www.ljmu.dev/auth/login/flow?s={secret}
                                 &email={email}&otp={otp}
                             </a>
                             <p className="mt-3 italic opacity-75">
