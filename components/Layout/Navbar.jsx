@@ -1,4 +1,6 @@
+import { useState } from "react";
 import Container from "./Container";
+import { IoClose, IoMenu } from "react-icons/io5";
 
 const NavLink = ({ href, target, children }) => {
     return (
@@ -9,6 +11,8 @@ const NavLink = ({ href, target, children }) => {
 };
 
 export default function NavBar({ fixed = false }) {
+    const [open, setOpen] = useState(false);
+
     return (
         <nav
             id="navbar"
@@ -24,9 +28,18 @@ export default function NavBar({ fixed = false }) {
                             alt="SE Team Logo"
                             className="h-7 mr-1"
                         />
-                        <h1 className="font-black text-xl text-nowrap italic">
+                        <h1 className="font-black text-xl text-nowrap italic hidden md:block">
                             SOFTWARE ENGINEERING
                         </h1>
+                        <div className="absolute h-14 w-14 right-0 md:hidden flex items-center justify-center">
+                            <IoMenu
+                                onClick={() => {
+                                    setOpen(true);
+                                }}
+                                size={20}
+                                className="cursor-pointer"
+                            />
+                        </div>
                     </div>
                 </Container>
             </div>
@@ -43,6 +56,29 @@ export default function NavBar({ fixed = false }) {
                         </NavLink>
                     </div>
                 </Container>
+            </div>
+            <div
+                className={`top-0 h-[100dvh] ${
+                    open ? "w-full" : "w-0"
+                } bg-black fixed z-20 transition-all overflow-hidden md:hidden`}
+            >
+                <div className="absolute h-14 w-14 right-0 md:hidden flex items-center justify-center">
+                    <IoClose
+                        onClick={() => {
+                            setOpen(false);
+                            console.log("Closed");
+                        }}
+                        size={20}
+                        className="cursor-pointer"
+                    />
+                </div>
+                <div className="mt-14 h-max flex flex-col px-10 gap-5">
+                    <NavLink href="/">Home</NavLink>
+                    <NavLink href="/">About Us</NavLink>
+                    <NavLink href="https://www.ljmu.ac.uk" target={"_blank"}>
+                        Our University
+                    </NavLink>
+                </div>
             </div>
         </nav>
     );
