@@ -4,7 +4,7 @@ import { Toaster } from "react-hot-toast";
 export default function App({ Component, pageProps }) {
     const environment = process.env.NEXT_PUBLIC_ENVIRONMENT;
 
-    if (environment !== "PRODUCTION") {
+    if (environment == "UNDER_CONSTRUCTION") {
         return (
             <div className="w-full h-[100dvh] flex flex-col items-center justify-center bg-gray-900 text-white select-none p-10 text-center">
                 <h1 className="text-white text-4xl font-bold mb-5">
